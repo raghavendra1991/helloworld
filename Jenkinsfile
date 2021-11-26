@@ -6,6 +6,7 @@ pipeline {
         jdk 'openjdk-11'
     }
     stages {
+        
         stage ('Initialize') {
             steps {
                 sh '''
@@ -14,8 +15,6 @@ pipeline {
                 '''
             }
         }
-
-    stages {
 
         stage('Compile Stage') {
             steps {
