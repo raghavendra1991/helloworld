@@ -28,11 +28,6 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh "mvn tomcat:undeploy"
-            }
-        }
-        stage('Deploy') {
-            steps {
                 sh "mvn tomcat:deploy"
             }
         }
