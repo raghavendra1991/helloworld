@@ -4,14 +4,6 @@ pipeline {
 
     stages {
 
-        stage ('Git Checkout') {
-            steps {
-                git branch:'master'
-                    credentialsId:'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'
-                    url:'https://github.com/raghavendra1991/helloworld.git'
-                sh "ls -lat"
-            }
-        }
         stage('Compile Stage') {
             steps {
                 sh "mvn clean compile"
