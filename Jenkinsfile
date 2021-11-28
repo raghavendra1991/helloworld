@@ -42,20 +42,31 @@ pipeline {
             }
         }
     }
+
 post {
-    success {
-         emailext (
-            to: '$DEFAULT_RECIPIENTS',
-            subject: "SUCCESS",
-            body: "SUCCESS!"
-         )
-    }			
-    failure {
-	 emailext (
-            to: '$DEFAULT_RECIPIENTS',
-	    subject: "FAILURE",
-            body: "FAILURE!"
-         )   
+	success {
+            script {
+                currentBuild.result = 'SUCCESS'
+            }
+        }
+
+        always {
+            step([$class: 'Mailer',
+                notifyEverystableBuild: true,
+                recipients: "duvva.raghavendra@gmail.com",
+                sendToIndividuals: true])
+        }
+        failure {
+            script {
+                currentBuild.result = 'FAILURE'
+            }
+        }
+
+        always {
+            step([$class: 'Mailer',
+                notifyEveryUnstableBuild: true,
+                recipients: "duvva.raghavendra@gmail.com",
+                sendToIndividuals: true])
+        }
     }
-  }
 }
