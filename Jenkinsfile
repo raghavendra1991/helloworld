@@ -33,28 +33,12 @@ pipeline {
                 sh "mvn package"
             }
         }
-        // Web Application Undeploy Tomact
-        stage('redeploy Stage') {
-            steps {
-                sh "mvn tomcat:redeploy"
-            }
-        }
         // Web Application Deploy Tomact
         stage('Deploy Stage') {
             steps {
-                sh "mvn tomcat:deploy"
-            }
-        }
-        // Web Application Undeploy Tomact
-        stage('Undeploy Stage') {
-            steps {
-                sh "mvn tomcat:undeploy"
-            }
-        }
-        // Web Application Redeploy Tomcat
-        stage('Redeploy Stage') {
-            steps {
                 sh "mvn tomcat:redeploy"
+                sh "mvn tomcat:undeploy"
+                sh "mvn tomcat:deploy"
             }
         }
     }
