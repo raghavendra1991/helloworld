@@ -44,7 +44,7 @@ pipeline {
     }
 
 post {
-	success {
+    success {
             script {
                 currentBuild.result = 'SUCCESS'
             }
@@ -54,8 +54,8 @@ post {
                 notifyEverystableBuild: true,
                 recipients: "duvva.raghavendra@gmail.com",
                 sendToIndividuals: true])
-        }
-        failure {
+            }
+    failure {
             script {
                 currentBuild.result = 'FAILURE'
             }
@@ -65,6 +65,6 @@ post {
                 notifyEveryUnstableBuild: true,
                 recipients: "duvva.raghavendra@gmail.com",
                 sendToIndividuals: true])
-        }
+            }
     }
 }
