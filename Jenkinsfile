@@ -42,14 +42,20 @@ pipeline {
             }
         }
     }
-    post {
+post {
     success {
-      sh "echo 'Send mail on success'"
-      // mail to:"duvva.raghavendra@gmail.com", subject:"SUCCESS: ${currentBuild.fullDisplayName}", body: "Yay, we passed."
-    }
+         emailext (
+            to: '$DEFAULT_RECIPIENTS',
+            subject: "SUCCESS",
+            ody: "SUCCESS!"
+         )
+    }			
     failure {
-      sh "echo 'Send mail on failure'"
-      // mail to:"duvva.raghavendra@gmail.com", subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Boo, we failed."
+	       emailext (
+               to: '$DEFAULT_RECIPIENTS',
+               subject: "FAILURE",
+               body: "FAILURE!"
+           )   
     }
   }
 }
