@@ -15,13 +15,6 @@ pipeline {
                 '''
             }
         }
-        // Web Application Git Chechout
-        stage('Git Checkout code') {
-            steps {
-		git credentialsId: 'GITHUB', url: 'https://github.com/raghavendra1991/tet.git'
-                checkout scm
-            }
-        }
         // Web Application Build
         stage('Build Stage') {
             steps {
