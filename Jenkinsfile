@@ -49,7 +49,6 @@ post {
                 currentBuild.result = 'SUCCESS'
             }
         }
-
         always {
             step([$class: 'Mailer',
                 notifyEverystableBuild: true,
@@ -61,7 +60,6 @@ post {
                 currentBuild.result = 'FAILURE'
             }
         }
-
         always {
             step([$class: 'Mailer',
                 notifyEveryUnstableBuild: true,
