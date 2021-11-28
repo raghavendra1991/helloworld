@@ -57,7 +57,6 @@ pipeline {
                 sh "mvn tomcat:redeploy"
             }
         }
-        
     }
     post {
     success {
