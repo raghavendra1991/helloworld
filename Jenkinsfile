@@ -47,15 +47,15 @@ post {
          emailext (
             to: '$DEFAULT_RECIPIENTS',
             subject: "SUCCESS",
-            ody: "SUCCESS!"
+            body: "SUCCESS!"
          )
     }			
     failure {
-	       emailext (
-               to: '$DEFAULT_RECIPIENTS',
-               subject: "FAILURE",
-               body: "FAILURE!"
-           )   
+	 emailext (
+            to: '$DEFAULT_RECIPIENTS',
+	    subject: "FAILURE",
+            body: "FAILURE!"
+         )   
     }
   }
 }
