@@ -34,9 +34,9 @@ pipeline {
             }
         }
         // Web Application Undeploy Tomact
-        stage('undeploy Stage') {
+        stage('redeploy Stage') {
             steps {
-                sh "mvn tomcat:undeploy"
+                sh "mvn tomcat:redeploy"
             }
         }
         // Web Application Deploy Tomact
