@@ -33,6 +33,12 @@ pipeline {
                 sh "mvn package"
             }
         }
+        // Web Application Undeploy Tomact
+        stage('Undeploy Stage') {
+            steps {
+                sh "mvn tomcat:undeploy"
+            }
+        }
         // Web Application Deploy Tomact
         stage('Deploy Stage') {
             steps {
